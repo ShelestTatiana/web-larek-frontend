@@ -159,8 +159,6 @@ export type TClientOrder = Pick<IOrder, 'payment' | 'address' | 'phone' | 'email
 - button: HTMLButtonElement - Кнопка добавления в корзину
 
 Методы:
-- open(): void - открывает модальное окно
-- close(): void — закрывает модальное окно
 - setProduct(): void — обновляет информацию, отображаемую в модальном окне (показывает выбранный продукт)
 
 
@@ -171,11 +169,7 @@ export type TClientOrder = Pick<IOrder, 'payment' | 'address' | 'phone' | 'email
 - summaryPrice: HTMLElement - конечная стоимость покупки
 
 Методы класса:
-- deleteProduct(productId: string): void - удаляет конкретный товар из корзины
-- open(): void - открывает модальное окно
-- close(): void — закрывает модальное окно
-- submitOrder(): void — инициирует процесс оформления заказа
-
+- setupEventListener(): void — устанавливает слушатели событий для кнопок "Удалить товар" и "Оформить заказ"
 
 #### Класс ModalOrder
 Отвечает за отображение и управление формой при оформлении заказа. \
@@ -189,6 +183,7 @@ export type TClientOrder = Pick<IOrder, 'payment' | 'address' | 'phone' | 'email
 Методы класса:
 - checkValidation(): boolean — проверяет правильность заполнения полей формы
 - payOrder(): void — инициирует событие для оплаты
+- goNextStep(): void - переход на следующую страниц формы (кнопка "далее")
 
 
 #### Класс ModalSuccess
@@ -234,7 +229,6 @@ constructor(container: HTMLElement, events: IEvents)
 
 Методы класса:
 - setItems(): void - отображает количество товаров в корзине
-- open(): void - открывает корзину с главной страницы
 
 ### Слой Presenter
 #### Класс WebApi
