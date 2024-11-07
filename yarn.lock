@@ -1084,6 +1084,11 @@
 "@types/json-schema@*", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.11"
 
+"@types/lodash@^4.17.9":
+  version "4.17.9"
+  resolved "http://npm.prakticum-team.ru/@types/lodash/-/lodash-4.17.9.tgz"
+  integrity sha512-w9iWudx1XWOHW5lQRS9iKpK/XuRhnN+0T7HvdCCd802FYkT1AMTnxndJHGrNJwRoRHkslGr4S29tjm1cT7x/7w==
+
 "@types/mime@*":
   version "3.0.1"
 

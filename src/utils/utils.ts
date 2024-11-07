@@ -133,3 +133,9 @@ export function createElement<
     }
     return element;
 }
+
+
+// //функция форматирования цены
+// export function handlePrice(price: number): string {
+//     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+// }

@@ -1,43 +1,45 @@
-//карточка товара
+//Интерфейс карточки товара
 export interface IProduct {
     id: string;
     description: string;
     image: string;
     title: string;
-    category: TCategory;
+    category: string;
     price: number | null;
 }
 
-//заказ
-export interface IOrder {
-    payment: TPaymentMethod;
+//Интерфейсы форм
+export interface IOrderForm {
+    payment: string;
     email: string;
-    address: string;
     phone: string;
+    address: string;  
+}
+
+export interface IOrder extends IOrderForm{
+    total: number;
     items: string[];
-    checkValidation(data: Record<keyof TClientOrder, string>): boolean;
 }
 
-//массив товаров и методы работы с ним
-export interface IProductsData {
-    products: IProduct[];
+
+export interface IOrderResult {
+    id: string;
+    total: number;  
+}
+
+//Интерфейс API-клиента
+export interface IAppState {
+    catalog: IProduct[];
     preview: string | null;
-    getProducts(): IProduct[]; 
-    getProduct(id: string): IProduct; 
-    setProduct(product: IProduct[]): void; 
-    savePreview(product: IProduct): void; 
-    saveProduct(product: IProduct): void; 
+    order: IOrder | null;
 }
 
-//тип оплаты
-export type TPaymentMethod = 'card' | 'cash';
+//Ошибки валидации
+export type FormErrors = Partial<Record<keyof IOrder, string>>
 
-//категория товара
-export type TCategory = 'софт-скил' | 'другое' | 'дополнительное' | 'кнопка' | 'хард-скил';
+//Типы оплаты
+export type PaymentMethod = 'cash' | 'card' | '';
 
-//данные клиента при заказе
-export type TClientOrder = Pick<IOrder, 'payment' | 'address' | 'phone' | 'email'>;
-
-//товары в корзине 
-export type TCartProduct = Pick<IProduct, 'id' | 'title' | 'price'>;
-
+export type CategoryPayment = {
+  [Key in PaymentMethod]: string;
+};

@@ -1,10 +1,13 @@
+//описание ответа API
 export type ApiListResponse<Type> = {
     total: number,
     items: Type[]
 };
 
+//описание методов API
 export type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
 
+//класс API
 export class Api {
     readonly baseUrl: string;
     protected options: RequestInit;
@@ -19,6 +22,7 @@ export class Api {
         };
     }
 
+    //обработка ответа сервера
     protected handleResponse(response: Response): Promise<object> {
         if (response.ok) return response.json();
         else return response.json()
